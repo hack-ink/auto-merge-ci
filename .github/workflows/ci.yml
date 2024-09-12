@@ -1,0 +1,42 @@
+name: Daily Auto Merge
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+on:
+  schedule:
+    # Runs every day at midnight UTC
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup auto-merge
+        run: |
+          wget https://github.com/hack-ink/auto-merge/releases/latest/download/auto-merge-x86_64-unknown-linux-gnu.tar.gz
+          tar -xvf auto-merge-x86_64-unknown-linux-gnu.tar.gz
+          chmod +x auto-merge
+      - name: Run
+        env:
+          GITHUB_TOKEN: "${{ secrets.PAT }}"
+        run: |
+          REPOS=(
+            "hack-ink/AiR"
+            "hack-ink/array-bytes"
+            "hack-ink/auto-merge"
+            "hack-ink/cargo-all"
+            "hack-ink/cargo-featalign"
+            "hack-ink/githuber"
+            "hack-ink/language"
+            "hack-ink/reqwew"
+            "hack-ink/rust-initializer"
+            "hack-ink/subalfred"
+            "hack-ink/substrate-minimal"
+          )
+          for REPO in "${REPOS[@]}"; do
+            ./auto-merge "$REPO"
+          done
