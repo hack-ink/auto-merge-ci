@@ -24,6 +24,7 @@
 | [hack-ink/rust-initializer](https://github.com/hack-ink/rust-initializer)   | N/A              |
 | [hack-ink/subalfred](https://github.com/hack-ink/subalfred)                 | N/A              |
 | [hack-ink/substrate-minimal](https://github.com/hack-ink/substrate-minimal) | N/A              |
+| [hack-ink/unescaper](https://github.com/hack-ink/unescaper)                 | N/A              |
 </div>
 
 <div align="right">

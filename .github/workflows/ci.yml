@@ -36,6 +36,7 @@ jobs:
             "hack-ink/rust-initializer"
             "hack-ink/subalfred"
             "hack-ink/substrate-minimal"
+            "hack-ink/unescaper"
           )
           for REPO in "${REPOS[@]}"; do
             ./auto-merge "$REPO"
